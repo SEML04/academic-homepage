@@ -29,16 +29,15 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="identity-card reveal reveal-delay" aria-label="Current position">
+        <aside className="identity-card reveal reveal-delay" aria-label="Profile and affiliation">
           <div className="profile-photo-wrap">
             <img className="profile-photo" src={profileImage} alt="Portrait of Yunshu Dai" />
           </div>
-          <div>
-            <p className="card-label">Currently</p>
-            <p className="card-title">Master&apos;s Student</p>
+          <div className="identity-info">
+            <p className="card-label">Affiliation</p>
             <p className="card-copy">Academy of Mathematics and Systems Science<br />Chinese Academy of Sciences</p>
+            <a className="email-link" href="mailto:daiyunshu25@mails.ucas.ac.cn">daiyunshu25@mails.ucas.ac.cn</a>
           </div>
-          <a className="email-link" href="mailto:daiyunshu25@mails.ucas.ac.cn">daiyunshu25@mails.ucas.ac.cn</a>
         </aside>
       </section>
 
