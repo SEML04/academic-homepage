@@ -36,3 +36,9 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local profile source and generated deliverables
+/information.md
+/image.jpg
+/image0.jpg
+/output/

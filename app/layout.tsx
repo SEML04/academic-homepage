@@ -9,20 +9,20 @@ const socialImage = isGitHubPages ? '/academic-homepage/og.png' : '/og.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: 'Lin Wei · Mathematics', template: '%s · Lin Wei' },
-  description: 'Academic homepage of Lin Wei, a researcher in algebraic geometry and related areas.',
+  title: { default: 'Yunshu Dai · Mathematics', template: '%s · Yunshu Dai' },
+  description: 'Academic homepage of Yunshu Dai, a researcher in arithmetic and Diophantine geometry.',
   openGraph: {
-    title: 'Lin Wei · Mathematics',
-    description: 'Algebraic Geometry · Moduli Spaces · Derived Categories',
+    title: 'Yunshu Dai · Mathematics',
+    description: 'Arithmetic Geometry · Diophantine Geometry · Analytic Number Theory',
     url: siteUrl,
-    siteName: 'Lin Wei · Mathematics',
-    images: [{ url: socialImage, width: 1732, height: 909, alt: 'Lin Wei · Mathematics' }],
+    siteName: 'Yunshu Dai · Mathematics',
+    images: [{ url: socialImage, width: 1732, height: 909, alt: 'Yunshu Dai · Mathematics' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lin Wei · Mathematics',
-    description: 'Algebraic Geometry · Moduli Spaces · Derived Categories',
+    title: 'Yunshu Dai · Mathematics',
+    description: 'Arithmetic Geometry · Diophantine Geometry · Analytic Number Theory',
     images: [socialImage],
   },
 };

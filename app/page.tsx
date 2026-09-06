@@ -2,18 +2,22 @@ import Link from 'next/link';
 import { SiteHeader } from './site-header';
 import { SiteFooter } from './page-shell';
 
+const profileImage = process.env.GITHUB_ACTIONS === 'true'
+  ? '/academic-homepage/profile.jpg'
+  : '/profile.jpg';
+
 export default function Home() {
   return (
     <main>
       <SiteHeader />
       <section className="hero shell">
         <div className="hero-copy reveal">
-          <p className="eyebrow">Pure Mathematics · Algebraic Geometry</p>
-          <h1>Lin Wei</h1>
+          <p className="eyebrow">Pure Mathematics · Arithmetic Geometry</p>
+          <h1>Yunshu Dai</h1>
           <p className="hero-intro">
-            I study the geometry and arithmetic of moduli spaces, with a
-            particular interest in derived methods and questions at the
-            boundary of algebraic geometry and representation theory.
+            I&apos;m interested in Diophantine geometry, Diophantine approximation,
+            arithmetic geometry and analytic number theory, including rational
+            point counting and approximation on algebraic varieties.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/publications">
@@ -26,15 +30,15 @@ export default function Home() {
         </div>
 
         <aside className="identity-card reveal reveal-delay" aria-label="Current position">
-          <span className="orb orb-one" />
-          <span className="orb orb-two" />
-          <div className="monogram" aria-hidden="true">LW</div>
+          <div className="profile-photo-wrap">
+            <img className="profile-photo" src={profileImage} alt="Portrait of Yunshu Dai" />
+          </div>
           <div>
             <p className="card-label">Currently</p>
-            <p className="card-title">Assistant Professor</p>
-            <p className="card-copy">Department of Mathematics<br />Eastlake University</p>
+            <p className="card-title">Master&apos;s Student</p>
+            <p className="card-copy">Academy of Mathematics and Systems Science<br />Chinese Academy of Sciences</p>
           </div>
-          <a className="email-link" href="mailto:lin.wei@example.edu">lin.wei@example.edu</a>
+          <a className="email-link" href="mailto:daiyunshu25@mails.ucas.ac.cn">daiyunshu25@mails.ucas.ac.cn</a>
         </aside>
       </section>
 
@@ -42,9 +46,9 @@ export default function Home() {
         <div className="shell research-grid">
           <p className="section-kicker">Research themes</p>
           <div className="research-list">
-            <span>Moduli spaces</span>
-            <span>Derived categories</span>
-            <span>Birational geometry</span>
+            <span>Diophantine geometry</span>
+            <span>Diophantine approximation</span>
+            <span>Analytic number theory</span>
           </div>
         </div>
       </section>

@@ -24,9 +24,9 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell nav-wrap">
-        <Link className="wordmark" href="/" aria-label="Lin Wei, home">
+        <Link className="wordmark" href="/" aria-label="Yunshu Dai, home">
           <span className="wordmark-mark">∫</span>
-          <span>Lin Wei</span>
+          <span>Yunshu Dai <span className="chinese-name">(戴云舒)</span></span>
         </Link>
         <nav aria-label="Primary navigation">
           <Link href="/cv">CV</Link>

@@ -1,51 +1,66 @@
 import type { Metadata } from 'next';
 import { PageShell } from '../page-shell';
 
-export const metadata: Metadata = { title: 'Curriculum Vitae', description: 'Education, positions, awards, and academic service of Lin Wei.' };
+export const metadata: Metadata = {
+  title: 'Curriculum Vitae',
+  description: 'Education and research interests of Yunshu Dai.',
+};
 
-const positions = [
-  { years: '2024—present', role: 'Assistant Professor', place: 'Eastlake University, Department of Mathematics' },
-  { years: '2021—2024', role: 'Szegő Assistant Professor', place: 'Stanford University' },
-  { years: '2020—2021', role: 'Postdoctoral Fellow', place: 'Institut des Hautes Études Scientifiques' },
-];
+const cvPdf = process.env.GITHUB_ACTIONS === 'true'
+  ? '/academic-homepage/cv/Yunshu_Dai_CV.pdf'
+  : '/cv/Yunshu_Dai_CV.pdf';
 
 const education = [
-  { years: '2015—2020', role: 'Ph.D. in Mathematics', place: 'Princeton University · Advisor: Claire Voisin' },
-  { years: '2011—2015', role: 'B.Sc. in Mathematics', place: 'Tsinghua University' },
+  {
+    years: '2025—present',
+    role: 'M.Sc. in Mathematics (in progress)',
+    place: 'Academy of Mathematics and Systems Science, Chinese Academy of Sciences · Beijing, China',
+    supervisor: true,
+  },
+  {
+    years: '2021—2025',
+    role: 'B.Sc. in Mathematics and Applied Mathematics',
+    place: 'Tongji University · Shanghai, China',
+    supervisor: false,
+  },
 ];
-
-function Timeline({ items }: { items: typeof positions }) {
-  return <div className="timeline">{items.map((item) => (
-    <article className="timeline-item" key={item.years + item.role}>
-      <p className="year">{item.years}</p>
-      <div><h3>{item.role}</h3><p>{item.place}</p></div>
-    </article>
-  ))}</div>;
-}
 
 export default function CvPage() {
   return (
-    <PageShell eyebrow="Curriculum Vitae" title="Experience & education" intro="A concise overview of my academic appointments, training, and service. A full PDF version will be added later.">
+    <PageShell eyebrow="Curriculum Vitae" title="Education & research">
+      <div className="cv-download-row">
+        <p>Download a typeset copy of my complete curriculum vitae.</p>
+        <a className="button button-primary" href={cvPdf} target="_blank" rel="noreferrer">
+          Download CV <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
       <section className="split-section">
-        <h2>Appointments</h2>
-        <Timeline items={positions} />
-      </section>
-      <section className="split-section">
-        <h2>Education</h2>
-        <Timeline items={education} />
-      </section>
-      <section className="split-section">
-        <h2>Awards</h2>
-        <div className="simple-list">
-          <p><span>2025</span> Early Career Research Fellowship</p>
-          <p><span>2020</span> Porter Ogden Jacobus Fellowship</p>
-          <p><span>2018</span> Graduate Teaching Award</p>
+        <h2>Research interests</h2>
+        <div className="prose">
+          <p>Diophantine geometry, Diophantine approximation, arithmetic geometry and analytic number theory, especially rational point counting and approximation on algebraic varieties.</p>
         </div>
       </section>
+
       <section className="split-section">
-        <h2>Service</h2>
-        <div className="prose"><p>Organizer, Eastlake Algebraic Geometry Seminar (2025—present)</p><p>Referee for journals in algebraic geometry and representation theory.</p></div>
+        <h2>Education</h2>
+        <div className="timeline">
+          {education.map((item) => (
+            <article className="timeline-item" key={item.years + item.role}>
+              <p className="year">{item.years}</p>
+              <div>
+                <h3>{item.role}</h3>
+                <p>{item.place}</p>
+                {item.supervisor ? (
+                  <p>Supervisor: <a className="inline-link" href="https://sites.google.com/site/hcsoft9099/home?authuser=0" target="_blank" rel="noreferrer">Zhizhong Huang</a></p>
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
+
+      {/* Appointments, awards, and service will be added when details are available. */}
     </PageShell>
   );
 }

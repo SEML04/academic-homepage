@@ -49,6 +49,10 @@ h1 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp
 .button-primary:hover { transform: translateY(-3px); background: var(--accent); border-color: var(--accent); }
 .text-link { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .identity-card { position: relative; min-height: 380px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; border: 1px solid var(--line); background: var(--card); backdrop-filter: blur(8px); }
+.profile-photo-wrap { position: absolute; inset: 0 0 48%; overflow: hidden; background: var(--paper-deep); }
+.profile-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 24%; filter: saturate(.78) contrast(1.03); transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .35s ease; }
+.identity-card:hover .profile-photo { transform: scale(1.025); filter: saturate(.95) contrast(1.03); }
+.chinese-name { color: var(--muted); font-family: Arial, sans-serif; font-size: .72em; font-weight: 400; }
 .monogram { position: absolute; top: 30px; right: 24px; color: var(--paper-deep); font-family: Georgia, serif; font-size: 116px; line-height: 1; }
 .card-title { position: relative; margin: 0 0 8px; font-family: Georgia, serif; font-size: 25px; }
 .card-copy { position: relative; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
@@ -72,6 +76,9 @@ h1 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp
 .timeline-item:last-child { padding-bottom: 0; }
 .timeline-item h3, .simple-list p, .prose p { margin: 0; font-family: Georgia, serif; font-size: 21px; font-weight: 400; line-height: 1.4; }
 .timeline-item div p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+.inline-link { color: var(--accent); border-bottom: 1px solid currentColor; }
+.cv-download-row { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 38px 0; border-bottom: 1px solid var(--line); }
+.cv-download-row p { margin: 0; color: var(--muted); font-family: Georgia, serif; font-size: 18px; }
 .year { margin: 5px 0 0; color: var(--muted); font-size: 12px; letter-spacing: .05em; }
 .simple-list, .prose { display: grid; gap: 20px; }
 .simple-list p { display: grid; grid-template-columns: 76px 1fr; }
@@ -93,6 +100,8 @@ h1 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp
 .event time { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
 .event-kind { margin: 0 0 11px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .event-body > p:last-child { margin: 13px 0 0; color: var(--muted); font-size: 13px; }
+.event-title-link span { display: inline-block; color: var(--accent); font-family: Arial, sans-serif; font-size: .58em; transition: transform .2s ease; }
+.event-title-link:hover span { transform: translate(3px, -3px); }
 .status { padding: 6px 9px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 .status.upcoming { border-color: var(--accent); color: var(--accent); }
 .invite-note { display: grid; grid-template-columns: 100px 1fr; gap: 34px; margin-top: 70px; padding: 38px; background: var(--paper-deep); }
@@ -126,6 +135,7 @@ footer { border-top: 1px solid var(--line); }
   .page-content { padding-bottom: 72px; }
   .split-section { grid-template-columns: 1fr; gap: 34px; padding: 44px 0; }
   .timeline-item { grid-template-columns: 92px 1fr; gap: 16px; }
+  .cv-download-row { align-items: flex-start; flex-direction: column; }
   .paper, .event { grid-template-columns: 58px 1fr; gap: 16px; padding: 34px 0; }
   .paper-arrow, .status { display: none; }
   .invite-note { grid-template-columns: 52px 1fr; gap: 10px; padding: 28px 22px; }
